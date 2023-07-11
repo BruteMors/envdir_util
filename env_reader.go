@@ -49,16 +49,6 @@ func ReadDir(dir string) (Environment, error) {
 
 			stringsOfFile := strings.Split(string(valueFile), "\n")
 			firstStringOfFileWithoutZeroEsc := strings.Replace(stringsOfFile[0], "\000", "\n", -1)
-			//valueFile = bytes.Replace(valueFile, []byte("\000"), []byte("\n"), -1)
-			//valueFileWithoutSpace := strings.TrimSpace(string(valueFile))
-			//if valueFileWithoutSpace == "" {
-			//	envValues[nameFile] = EnvValue{
-			//		Value:      "",
-			//		NeedRemove: true,
-			//	}
-			//	continue
-			//}
-			//valuesInFile := strings.Fields(valueFileWithoutSpace)
 			if strings.TrimSpace(firstStringOfFileWithoutZeroEsc) == "" {
 				envValues[nameFile] = EnvValue{
 					Value:      "",
